@@ -1,0 +1,64 @@
+/* Styles for devices wider than 600px */
+@media (min-width: 601px) {
+    .container {
+        width: 80%;
+    }
+
+    .header {
+        padding: 20px 0;
+        font-size: 24px;
+    }
+}
+
+/* Styles for devices wider than 900px */
+@media (min-width: 901px) {
+    .container {
+        width: 70%;
+    }
+
+    .header {
+        padding: 30px 0;
+        font-size: 28px;
+    }
+}
+
+/* Styles for devices in landscape orientation */
+@media (orientation: landscape) {
+    .header {
+        background-color: #333;
+        font-size: 32px;
+    }
+}
+
+/* Styles for devices in portrait orientation */
+@media (orientation: portrait) {
+    .header {
+        background-color: #4CAF50;
+        font-size: 24px;
+    }
+}
+
+/* Styles for mobile devices only */
+@media (max-width: 600px) {
+    .header {
+        font-size: 18px;
+        padding: 10px 0;
+    }
+}
+
+table {
+    width: 90%;
+    border-collapse: collapse;
+    margin:0px 20px px 30px;
+}
+table, th {
+    border: 1px solid #ccc;
+}
+th {
+    color: black;
+    padding: 5px;
+    text-align:center;
+}
+th {
+    background-color: #f2f2f2;
+}

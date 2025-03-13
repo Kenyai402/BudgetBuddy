@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset = "utf-8" >
+        <meta name="viewport" content="width=device-width ,initial-scale=1.0">
+        
+        <title>Expense tracker-Add expense</title>
+        <link rel="stylesheet" href="css/index.css">
+        <link rel="stylesheet" href="css/register.css">
+        <link rel="stylesheet" href="css/login.css">
+        <link rel="stylesheet" href="css/add_expense.css">
+        <link rel="stylesheet" href="css/view_expense.css">
+        <link rel="stylesheet" href="css/edit_expensecss">
+       
+
+        
+    <link rel="icon" href="images/letter-1084809_1280.png">
+        </head>
+        <body>
+             <header>
+                <h1>Budget<span class="buddy">Buddy</span></h1>
+                <nav>
+                    <ul>
+                        <li><a href="index.html" >HOME</a></li>
+                        <li><a href="register.html" target="_blank">REGISTER</a></li>
+                        <li><a href="login.html" target="_blank">LOGIN</a></li>
+                        <li><a href="add_expense.html" target="_blank">ADD EXPENSE</a></li>
+                        <li><a href="edit_expense.html" target="_blank">EDIT EXPENSE</a></li>
+                        <li><a href="view_expense.html" target="_blank">VIEW EXPENSE</a></li>
+                    </ul>
+                </nav>
+             </header>
+             <main>
+                <section class="form_container">
+                    <h2>Add Expense</h2>
+                    <div class="form_box">
+                    <form action="process_expense.php" method="POST">
+                        <label for="date">Date:</label>
+                        <input type="date" id="date" name="date" required>
+                        
+                        <label for="category">Category:</label>
+                        <input type="text" id="category" name="category" required>
+                        
+                        <label for="amount">Amount:</label>
+                        <input type="text" id="amount" name="amount" required>
+                        
+                        <label for="description">Description:</label>
+                        <textarea id="description" name="description" rows="4" required></textarea>
+                        
+                        <button type="submit">Add Expense</button>
+                    </form>
+                </section>
+            </main>
+            <footer>
+                <p>&copy; 2024 Expense Tracker. All rights reserved.</p>
+            </footer>
+        </body>
+        
+
+</html>
