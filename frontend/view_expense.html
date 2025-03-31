@@ -6,49 +6,136 @@
         
         <title>Expense tracker-View Expense</title>
         <link rel="stylesheet" href="css/index.css">
-        <link rel="stylesheet" href="css/register.css">
-        <link rel="stylesheet" href="css/login.css">
-        <link rel="stylesheet" href="css/add_expense.css">
+        <link rel="stylesheet" href="css/main.css">
+    
         <link rel="stylesheet" href="css/view_expense.css">
-        <link rel="stylesheet" href="css/edit_expensecss">
+  
        
 
         
     <link rel="icon" href="images/letter-1084809_1280.png">
         </head>
         <body>
-             <header>
+            <header>
                 <h1>Budget<span class="buddy">Buddy</span></h1>
-                <nav>
-                    <ul>
-                        <li><a href="index.html" >HOME</a></li>
-                        <li><a href="register.html" target="_blank">REGISTER</a></li>
-                        <li><a href="login.html" target="_blank">LOGIN</a></li>
-                        <li><a href="add_expense.html" target="_blank">ADD EXPENSE</a></li>
-                        <li><a href="edit_expense.html" target="_blank">EDIT EXPENSE</a></li>
-                        <li><a href="view_expense.html" target="_blank">VIEW EXPENSE</a></li>
+                <nav class="cyber-nav">
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="index.html" >HOME</a></li>
+                               <ul class="dropdown">
+                                 <li><a href="#">Dashboard</a></li>
+                                 <li><a href="#">Reports</a></li>
+                                 <li><a href="#">Profile</a></li>
+                              </ul>
+                        </li>
+                        <li class="nav-item"><a href="register.html" target="_self">REGISTER</a></li>
+                        <li class="nav-item"><a href="login.html" target="_self">LOGIN</a></li>
+                        <li class="nav-item">
+                            <a href="#">Expenses</a>
+                            <ul class="dropdown">
+                                <li><a href="add_expense.html" target="_self">ADD EXPENSE</a></li>
+                                <li><a href="edit_expense.html" target="_self">EDIT EXPENSE</a></li>
+                                <li><a href="view_expense.html" target="_self">VIEW EXPENSE</a></li>
+                            </ul>
+                        </li>
+                         <li class="nav-item">
+            <a href="#">Settings</a>
+            <ul class="dropdown">
+                <li><a href="#">Account</a></li>
+                <li><a href="#">Preferences</a></li>
+            </ul>
+        </li>
+                
+         
                     </ul>
                 </nav>
              </header>
         
-        <main>
-            <section class="form_container">
-                <h2>View Expenses</h2>
-                <table>
-                       <tr>
-                            <th>Date</th>
-                            <th>Category</th>
-                            <th>Amount</th>
-                            <th>Description</th>
-                            <th>Action</th>
-                        </tr>
-                    </table>
-                    </section>
-                    </main>
+             <main>
+                <section class="form_container">
+                    <h2>View Expenses</h2>
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Category</th>
+                                    <th>Amount</th>
+                                    <th>Description</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>2025-03-29</td>
+                                    <td>Food</td>
+                                    <td>$10</td>
+                                    <td>Lunch at a café</td>
+                                    <td>
+                                        <button class="edit-btn">Edit</button>
+                                        <button class="delete-btn">Delete</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </main>
+            
                     
                     <footer>
                         <p>&copy; 2024 Expense Tracker. All rights reserved.</p>
                     </footer>
+                  
+                    <script>
+                        document.addEventListener("DOMContentLoaded", async function() {
+                            try {
+                                const response = await fetch("http://localhost:3000/api/expenses"); 
+                                const expenses = await response.json();
+                    
+                                const tableBody = document.querySelector("tbody");
+                                tableBody.innerHTML = ""; // Clear any existing rows
+                    
+                                expenses.forEach(expense => {
+                                    const row = document.createElement("tr");
+                                    row.innerHTML = `
+                                        <td>${expense.date}</td>
+                                        <td>${expense.category}</td>
+                                        <td>$${expense.amount}</td>
+                                        <td>${expense.description}</td>
+                                        <td>
+                                            <button class="edit-btn" onclick="editExpense('${expense.id}')">Edit</button>
+                                            <button class="delete-btn" onclick="deleteExpense('${expense.id}')">Delete</button>
+                                        </td>
+                                    `;
+                                    tableBody.appendChild(row);
+                                });
+                            } catch (error) {
+                                console.error("Error fetching expenses:", error);
+                            }
+                        });
+                    
+                        async function deleteExpense(id) {
+                            if (confirm("Are you sure you want to delete this expense?")) {
+                                try {
+                                    const response = await fetch(`http://localhost:3000/api/expenses/${id}`, { method: "DELETE" });
+                                    if (response.ok) {
+                                        alert("Expense deleted successfully!");
+                                        location.reload(); // Refresh to show updated list
+                                    } else {
+                                        alert("Failed to delete expense.");
+                                    }
+                                } catch (error) {
+                                    console.error("Error deleting expense:", error);
+                                }
+                            }
+                        }
+                    
+                        function editExpense(id) {
+                            window.location.href = `edit_expense.html?id=${id}`; // Redirect to edit page with expense ID
+                        }
+                    </script>
+                    
             
             </body>
         
