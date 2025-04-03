@@ -16,7 +16,9 @@
         
         <body>
             <header>
-                <h1>Budget<span class="buddy">Buddy</span></h1>
+                <h1>
+                    <a href="index.html" class="logo-link">Budget<span class="buddy">Buddy</span></a>
+                </h1>
                 <nav class="cyber-nav">
                     <ul class="nav-list">
                         <li class="nav-item">
@@ -56,23 +58,25 @@
     <h2>Login</h2>
     <div class="form_box">
         <!-- Form with ID to be referenced in JavaScript -->
-        <form id="login-form">
+        <form class="form">
             <span class="input-span">
                 <label for="username" class="label">Email</label>
                 <input type="email" id="email" name="email" required>
             </span>
            
-            <span>
+            <span class="input-span" >
                 <label for="password" class="label">Password</label>
                 <input type="password" id="password" name="password" required>
             </span>
-            <span class="span"><a href="#">Forgot password?</a></span>
-            <input class="submit" type="submit" value="Log in" />
 
-            <button type="submit">Login</button>
-            <span class="span">Don't have an account? <a href="#">Sign up</a></span>
+            <span class="span"><a href="#">Forgot password?</a>
+            <input class="submit" type="submit" value="Log in" />
+       </span>
+           
+            <span class="span">Don't have an account? <a href="register.html">Sign up</a></span>
         </form>
-    </div>
+        </div>
+    
 </section>
 
 <!-- Login Form Handler Script -->

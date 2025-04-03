@@ -34,6 +34,21 @@ h1, h2 {
     color: #00ffcc; /* Cyberpunk neon green */
 }
 
+.logo-link {
+    text-decoration: none; /* Removes underline */
+    color: inherit; /* Inherits the color from the h1 */
+    font-family: fantasy;
+    font-style: oblique;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #00ffcc;
+}
+
+.logo-link:hover {
+    text-decoration: none; /* Ensures no underline appears on hover */
+}
+
 
 .container {
     width: 90%;
@@ -46,7 +61,6 @@ h1, h2 {
 .header {
     text-align: center;
     padding: 20px;
-    background-color: #4CAF50;
     color: white;
     font-size: 24px;
 }

@@ -1,3 +1,84 @@
-.submit{
-    position: block;
-}
+.form {
+    --bg-light: #efefef;
+    --bg-dark: #707070;
+    --clr: #58bc82;
+    --clr-alpha: #9c9c9c60;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .form .input-span {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .form input[type="email"],
+  .form input[type="password"],
+  .form input[type="text"],
+  .form input[type="tel"]
+ {
+    border-radius: 0.5rem;
+    padding: 1rem 0.75rem;
+    width: 100%;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: var(--clr-alpha);
+    outline: 2px solid var(--bg-dark);
+  }
+  
+  .form input[type="text"]:focus,
+  .form input[type="password"]:focus,
+  .form input[type="tel"]:focus,
+  .form input[type="password"]:focus,
+  .form input[type="email"]:focus{
+    outline: 2px solid #00ffcc;
+  }
+  
+  .label {
+    align-self: flex-start;
+    color: #00ffcc;
+    font-weight: 600;
+  }
+  
+  .form .submit {
+    padding: 1rem 0.75rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 3rem;
+    background-color: rgb(63, 63, 88);
+    color: var(--bg-light);
+    border: none;
+    cursor: pointer;
+    transition: all 300ms;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-top: 20px;
+  }
+  
+  .form .submit:hover {
+    background-color: #00ffcc;
+    color: var(--bg-dark);
+  }
+  
+  .span {
+    text-decoration: none;
+    color: var(--bg-dark);
+    margin-bottom: 10px;
+  }
+  
+  .span a {
+    color: #00ffcc;
+    
+    
+  }
+  

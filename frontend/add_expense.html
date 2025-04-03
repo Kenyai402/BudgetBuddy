@@ -17,7 +17,9 @@
         </head>
         <body>
             <header>
-                <h1>Budget<span class="buddy">Buddy</span></h1>
+                <h1>
+                    <a href="index.html" class="logo-link">Budget<span class="buddy">Buddy</span></a>
+                </h1>
                 <nav class="cyber-nav">
                     <ul class="nav-list">
                         <li class="nav-item">
@@ -54,23 +56,38 @@
                 <section class="form_container">
                     <h2>Add Expense</h2>
                     <div class="form_box">
-                    <form action="process_expense.php" method="POST">
-                        <label for="date">Date:</label>
-                        <input type="date" id="date" name="date" required>
-                        
-                        <label for="category">Category:</label>
+                    <form class="form" action="process_expense.php" method="POST">
+                        <span class="input-span">
+                            <label for="date">Date</label>
+                            <input type="date" id="date" name="date" required>
+
+                        </span>
+
+                        <span class="input-span">              
+                        <label for="category">Category</label>
                         <input type="text" id="category" name="category" required>
-                        
-                        <label for="amount">Amount:</label>
+                        </span>
+
+                        <span class="input-span">     
+                        <label for="amount">Amount</label>
                         <input type="text" id="amount" name="amount" required>
-                        
-                        <label for="description">Description:</label>
+                        </span>
+
+                        <span class="input-span">
+                        <label for="description">Description</label>
                         <textarea id="description" name="description" rows="4" required></textarea>
-                        
-                        <button type="submit">Add Expense</button>
+                        </span>
+
+                        <span class="input-span">
+                            <input class="submit" type="submit" value="Add Expense" />
+
+                        </span>
+
                     </form>
+                </div>
                 </section>
             </main>
+
             <footer>
                 <p>&copy; 2024 Expense Tracker. All rights reserved.</p>
             </footer>
